@@ -2,7 +2,7 @@ import React from "react";
 import {createRoot} from "react-dom/client";
 import HomePage from "./pages/homePage";
 import sample from './stories/sampleData'
-import MovieDetailsPage from "./components/movieDetails";
+import MovieDetailsPage from "./pages/movieDetailsPage.js";
 
 const movies = [sample, sample, sample, sample, sample, sample, sample];
 const images = [
