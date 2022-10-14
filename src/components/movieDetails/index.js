@@ -19,7 +19,7 @@ const root = {
 };
 const chip = { margin: 0.5 };
 
-const MovieDetails = ( props) => {
+const MovieDetails = (props) => {
   const movie = props.movie
 
   return (
