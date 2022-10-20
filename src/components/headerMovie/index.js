@@ -6,10 +6,18 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import HomeIcon from "@mui/icons-material/Home";
 import { useNavigate } from "react-router-dom";
+import { Avatar } from "@mui/material";
+import { Favorite } from "@mui/icons-material";
 
 const MovieHeader = (props) => {
   const movie = props.movie;
   const navigate = useNavigate();
+  const favouriteMovies = JSON.parse(localStorage.getItem("favourites"));
+
+  let fav;
+  favouriteMovies.forEach(elm => {
+    (elm.id === movie.id) ? fav = true : fav = false
+  });
 
   return (
     <Paper 
@@ -25,6 +33,11 @@ const MovieHeader = (props) => {
       <IconButton aria-label="go back" onClick={() => navigate(-1)} >
         <ArrowBackIcon color="primary" fontSize="large" />
       </IconButton>
+      {
+        fav ? <Avatar sx={{backgroundColor: 'red'}}>
+          <Favorite/>
+        </Avatar> : null
+      }
 
       <Typography variant="h4" component="h3">
         {movie.title}
