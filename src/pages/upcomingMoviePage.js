@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import PageTemplate from "../components/templateMovieListPage";
 import { getUpcomingMovies } from "../api/tmdb-api";
 import AddToFavouritesIcon from '../components/cardIcons/addToFavourites';
+import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
 
 const UpcomingMoviesPage = (props) => {
     const [movies, setMovies] = useState([]);
@@ -27,7 +28,7 @@ const UpcomingMoviesPage = (props) => {
         title="Upcoming Movies"
         movies={movies} 
         action={(movie) => {
-          return <AddToFavouritesIcon movie={movie} />
+          return <PlaylistAddIcon />
         }}
         />
     )
