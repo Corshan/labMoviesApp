@@ -16,7 +16,7 @@ import img from '../../images/film-poster-placeholder.png'
 import Avatar from '@mui/material/Avatar';
 import { MoviesContext } from "../../contexts/moviesContext";
 
-export default function MovieCard(props) {
+export default function MovieCard({ movie, action }){
   const { favourites, addToFavourites } = useContext(MoviesContext);
 
   if (favourites.find((id) => id === movie.id)) {
@@ -71,9 +71,7 @@ export default function MovieCard(props) {
         </Grid>
       </CardContent>
       <CardActions disableSpacing>
-      <IconButton aria-label="add to favourites" onClick={handleAddToFavourite}>
-        <FavoriteIcon color="primary" fontSize="large" />
-    </IconButton>
+      {action(movie)}
         <Link to={`/movies/${movie.id}`}>
           <Button variant="outlined" size="medium" color="primary">
             More Info ...
